@@ -21,7 +21,7 @@ wget --output-document servoy_installer.jar --no-cookies --no-check-certificate 
 wget --output-document servoy_install.xml --no-cookies --no-check-certificate "http://www.servoyguy.com/docker/config/servoy_install.php?version=6" && \
 java -jar servoy_installer.jar servoy_install.xml && \
 rm -f servoy_installer.jar && \
-rm -f servoy_install.xml && \
+rm -f servoy_install.xml
 
 # Set environment variables.
 ENV HOME /root
