@@ -2,6 +2,9 @@ FROM centos:7
 
 MAINTAINER Scott Butler <scott@itechpros.com>
 
+#bundle installer config
+ADD servoy_install.xml servoy_install.xml
+
 # OS Updates
 RUN yum update -y && \
 yum install -y wget && \
@@ -18,7 +21,6 @@ yum clean all && \
 
 # Install Servoy
 wget --output-document servoy_installer.jar --no-cookies --no-check-certificate "http://www.servoyguy.com/docker/download/servoy.php?version=5" && \
-wget --output-document servoy_install.xml --no-cookies --no-check-certificate "http://www.servoyguy.com/docker/config/servoy_install.php?version=5" && \
 java -jar servoy_installer.jar servoy_install.xml && \
 rm -f servoy_installer.jar && \
 rm -f servoy_install.xml && \
