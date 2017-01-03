@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AutomatedInstallation langpack="eng">
+	<com.izforge.izpack.panels.HelloPanel/>
+	<com.izforge.izpack.panels.HTMLLicencePanel/>
+	<com.servoy.tools.install.panels.ServoyTargetPanel>
+		<installpath>/usr/home/servoy</installpath>
+	</com.servoy.tools.install.panels.ServoyTargetPanel>
+	<com.servoy.tools.install.panels.BranchSelectionPanel>
+		<installGroup>Servoy Application Server</installGroup>
+		<installType>server</installType>
+	</com.servoy.tools.install.panels.BranchSelectionPanel>
+	<com.servoy.tools.install.panels.DBSelectionPanel>
+		<databaseSelection>connect_to_existing_db</databaseSelection>
+	</com.servoy.tools.install.panels.DBSelectionPanel>
+	<com.servoy.tools.install.panels.BundledDBConfigurationPanel/>
+	<com.servoy.tools.install.panels.DBInstallerPanel/>
+	<com.servoy.tools.install.panels.DBSettingsPanel>
+		<dbServerURL></dbServerURL>
+		<dbDriverClass></dbDriverClass>
+		<dbUserName></dbUserName>
+		<dbPassword/>
+		<dbCatalog/>
+		<dbSchema/>
+	</com.servoy.tools.install.panels.DBSettingsPanel>
+	<com.servoy.tools.install.panels.AppServerSettingsPanel>
+		<httpPort>8080</httpPort>
+		<rmiPort>1099</rmiPort>
+	</com.servoy.tools.install.panels.AppServerSettingsPanel>
+	<com.servoy.tools.install.panels.ServoyTreePacksPanel>
+		<pack index="0" name="Application Server" selected="true"/>
+		<pack index="1" name="Clustering support" selected="true"/>
+		<pack index="2" name="Developer database" selected="false"/>
+		<pack index="3" name="JDBC Drivers" selected="true"/>
+		<pack index="4" name="Application Server Service" selected="true"/>
+		<pack index="5" name="Application Server Service component" selected="true"/>
+		<pack index="6" name="Setup Service" selected="true"/>
+		<pack index="7" name="Documentation" selected="true"/>
+		<pack index="8" name="Beans" selected="true"/>
+		<pack index="9" name="Plugins" selected="true"/>
+		<pack index="10" name="Look and Feel" selected="false"/>
+		<pack index="11" name="PDF support package" selected="true"/>
+	</com.servoy.tools.install.panels.ServoyTreePacksPanel>
+	<com.izforge.izpack.panels.UserPathPanel/>
+	<com.izforge.izpack.panels.SudoPanel/>
+	<com.servoy.tools.install.panels.ServoyInstallPanel/>
+	<com.izforge.izpack.panels.ShortcutPanel/>
+	<com.izforge.izpack.panels.FinishPanel/>
+</AutomatedInstallation>
