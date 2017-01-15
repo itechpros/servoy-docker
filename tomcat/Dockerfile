@@ -33,14 +33,16 @@ yum install -y tomcat-webapps tomcat-admin-webapps && \
 # Cleanup
 yum clean all && \
 
-# Enable the service
-systemctl enable tomcat
-
 # Add custom config files
 ADD tomcat.conf /usr/share/tomcat/conf/tomcat.conf
+ADD tomcat-users.xml /usr/share/tomcat/conf/tomcat-users.xml
 
-# TODO
-#ADD tomcat-users.xml /usr/share/tomcat/conf/tomcat-users.xml
+# Substitute Environment variables in the config files
+RUN envsubst < /usr/share/tomcat/conf/tomcat.conf | tee /usr/share/tomcat/conf/tomcat.conf && \
+envsubst < /usr/share/tomcat/conf/tomcat-users.xml | tee /usr/share/tomcat/conf/tomcat-users.xml
+
+# Enable the service
+systemctl enable tomcat
 
 # Define default working directory
 WORKDIR /usr/share/tomcat/webapps
