@@ -2,6 +2,9 @@ FROM itechpros/servoy:centos7-systemd
 
 MAINTAINER Scott Butler <scott@itechpros.com>
 
+# Environment variables
+ENV JAVA_HOME /usr/java/latest
+
 # Add RPM for windows fonts
 ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
 
