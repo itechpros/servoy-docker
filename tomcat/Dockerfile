@@ -32,7 +32,7 @@ yum install -y tomcat && \
 yum install -y tomcat-webapps tomcat-admin-webapps && \
 
 # Cleanup
-yum clean all && \
+yum clean all
 
 # Add custom config files
 ADD tomcat.conf /usr/share/tomcat/conf/tomcat.conf
