@@ -1,4 +1,4 @@
-FROM centos:7
+FROM itechpros/servoy:centos7-systemd
 
 MAINTAINER Scott Butler <scott@itechpros.com>
 
@@ -27,7 +27,10 @@ yum install -y tomcat && \
 yum install -y tomcat-webapps tomcat-admin-webapps && \
 
 # Cleanup
-yum clean all
+yum clean all && \
+
+# Enable the service
+systemctl enable tomcat
 
 # Add custom config files TODO
 #ADD tomcat.conf /usr/share/tomcat/conf/tomcat.conf
@@ -40,4 +43,4 @@ WORKDIR /usr/share/tomcat/webapps
 EXPOSE 8080
 EXPOSE 8443
 
-CMD ["/opt/tomcat/tomcat.sh"]
+CMD ["/usr/sbin/init"]
