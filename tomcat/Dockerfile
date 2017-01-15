@@ -5,8 +5,8 @@ MAINTAINER Scott Butler <scott@itechpros.com>
 # Environment variables
 ENV JAVA_HOME /usr/java/latest
 ENV CATALINA_HOME /usr/share/tomcat
-#ENV TOMCAT_USERNAME tomcatAdmin
-#ENV TOMCAT_PASSWORD tomcatPassword!
+ENV TOMCAT_USERNAME ${TOMCAT_USERNAME:-tomcatAdmin}
+ENV TOMCAT_PASSWORD ${TOMCAT_PASSWORD:-tomcatPassword!}
 
 # Add RPM for windows fonts
 ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
@@ -34,18 +34,14 @@ yum install -y tomcat && \
 yum install -y tomcat-webapps tomcat-admin-webapps && \
 
 # Cleanup
-yum clean all
+yum clean all && \
+
+# Enable the service
+systemctl enable tomcat
 
 # Add custom config files
 ADD tomcat.conf /usr/share/tomcat/conf
 ADD tomcat-users.xml /usr/share/tomcat/conf
-
-# Substitute Environment variables in the config files
-RUN envsubst < /usr/share/tomcat/conf/tomcat.conf | tee /usr/share/tomcat/conf/tomcat.conf && \
-envsubst < /usr/share/tomcat/conf/tomcat-users.xml | tee /usr/share/tomcat/conf/tomcat-users.xml
-
-# Enable the service
-RUN systemctl enable tomcat
 
 # Define default working directory
 WORKDIR /usr/share/tomcat/webapps
@@ -54,4 +50,7 @@ WORKDIR /usr/share/tomcat/webapps
 EXPOSE 8080
 EXPOSE 8443
 
-CMD ["/usr/sbin/init"]
+# Substitute Environment variables in the config files and start services.
+CMD envsubst < /usr/share/tomcat/conf/tomcat.conf | tee /usr/share/tomcat/conf/tomcat.conf && \
+envsubst < /usr/share/tomcat/conf/tomcat-users.xml | tee /usr/share/tomcat/conf/tomcat-users.xml && \
+/usr/sbin/init
