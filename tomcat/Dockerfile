@@ -4,6 +4,7 @@ MAINTAINER Scott Butler <scott@itechpros.com>
 
 # Environment variables
 ENV JAVA_HOME /usr/java/latest
+ENV CATALINA_HOME /usr/share/tomcat
 
 # Add RPM for windows fonts
 ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
@@ -35,8 +36,10 @@ yum clean all && \
 # Enable the service
 systemctl enable tomcat
 
-# Add custom config files TODO
-#ADD tomcat.conf /usr/share/tomcat/conf/tomcat.conf
+# Add custom config files
+ADD tomcat.conf /usr/share/tomcat/conf/tomcat.conf
+
+# TODO
 #ADD tomcat-users.xml /usr/share/tomcat/conf/tomcat-users.xml
 
 # Define default working directory
