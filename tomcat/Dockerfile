@@ -51,6 +51,7 @@ EXPOSE 8080
 EXPOSE 8443
 
 # Substitute Environment variables in the config files and start services.
+SHELL ["bash","-c"]
 CMD envsubst < /usr/share/tomcat/conf/tomcat.conf | tee /usr/share/tomcat/conf/tomcat.conf && \
 envsubst < /usr/share/tomcat/conf/tomcat-users.xml | tee /usr/share/tomcat/conf/tomcat-users.xml && \
 /usr/sbin/init
