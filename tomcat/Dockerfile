@@ -15,6 +15,7 @@ yum install -y wget && \
 yum install -y unzip && \
 yum install -y tar && \
 yum install -y net-tools && \
+yum install -y gettext && \
 
 #Install Windows fonts, like Arial and Verdana
 rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
