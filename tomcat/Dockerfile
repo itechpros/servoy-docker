@@ -43,7 +43,7 @@ RUN envsubst < /usr/share/tomcat/conf/tomcat.conf | tee /usr/share/tomcat/conf/t
 envsubst < /usr/share/tomcat/conf/tomcat-users.xml | tee /usr/share/tomcat/conf/tomcat-users.xml
 
 # Enable the service
-systemctl enable tomcat
+RUN systemctl enable tomcat
 
 # Define default working directory
 WORKDIR /usr/share/tomcat/webapps
