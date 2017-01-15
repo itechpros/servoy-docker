@@ -37,8 +37,8 @@ yum install -y tomcat-webapps tomcat-admin-webapps && \
 yum clean all
 
 # Add custom config files
-ADD tomcat.conf /usr/share/tomcat/conf/tomcat.conf
-ADD tomcat-users.xml /usr/share/tomcat/conf/tomcat-users.xml
+ADD tomcat.conf /usr/share/tomcat/conf
+ADD tomcat-users.xml /usr/share/tomcat/conf
 
 # Substitute Environment variables in the config files
 RUN envsubst < /usr/share/tomcat/conf/tomcat.conf | tee /usr/share/tomcat/conf/tomcat.conf && \
