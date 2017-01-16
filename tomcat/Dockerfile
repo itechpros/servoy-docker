@@ -21,6 +21,10 @@ yum install -y tar && \
 yum install -y net-tools && \
 yum install -y gettext && \
 
+# Install envplate templating engine for environment variable substitution
+curl -sLo /usr/local/bin/ep https://github.com/kreuzwerker/envplate/releases/download/v0.0.8/ep-linux  && \
+chmod +x /usr/local/bin/ep && \
+
 #Install Windows fonts, like Arial and Verdana
 rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
 
@@ -53,6 +57,6 @@ EXPOSE 8080
 EXPOSE 8443
 
 # Substitute Environment variables in the config files and start services.
-CMD envsubst < /usr/share/tomcat/conf/tomcat.conf | tee /usr/share/tomcat/conf/tomcat.conf && \
-envsubst < /usr/share/tomcat/conf/tomcat-users.xml | tee /usr/share/tomcat/conf/tomcat-users.xml && \
+CMD ep /usr/share/tomcat/conf/tomcat.conf && \
+ep /usr/share/tomcat/conf/tomcat-users.xml && \
 exec /usr/sbin/init
