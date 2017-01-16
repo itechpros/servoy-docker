@@ -48,6 +48,7 @@ systemctl enable tomcat
 # Add custom config files
 ADD tomcat.conf /usr/share/tomcat/conf
 ADD tomcat-users.xml /usr/share/tomcat/conf
+ADD web.xml /usr/share/tomcat/webapps/manager/WEB-INF/web.xml
 
 # Define default working directory
 WORKDIR /usr/share/tomcat/webapps
@@ -59,4 +60,5 @@ EXPOSE 8443
 # Substitute Environment variables in the config files and start services.
 CMD ep /usr/share/tomcat/conf/tomcat.conf && \
 ep /usr/share/tomcat/conf/tomcat-users.xml && \
+ep /usr/share/tomcat/webapps/manager/WEB-INF/web.xml && \
 exec /usr/sbin/init
