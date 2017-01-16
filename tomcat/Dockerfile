@@ -7,6 +7,8 @@ ENV JAVA_HOME /usr/java/latest
 ENV CATALINA_HOME /usr/share/tomcat
 ENV TOMCAT_USERNAME ${TOMCAT_USERNAME:-tomcatAdmin}
 ENV TOMCAT_PASSWORD ${TOMCAT_PASSWORD:-tomcatPassword!}
+ENV JAVA_XMS ${JAVA_XMS:-128}
+ENV JAVA_XMX ${JAVA_XMX:-1024}
 
 # Add RPM for windows fonts
 ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
