@@ -1,55 +1,30 @@
-FROM itechpros/servoy:centos7-systemd
+# Start with AlpineLinux with a glibc-2.23 and Oracle Java 8
+FROM itechpros/servoy:tomcat-alpine
 
 MAINTAINER Scott Butler <scott@itechpros.com>
 
 # Environment variables
-ENV JAVA_HOME /usr/java/latest
-ENV CATALINA_HOME /usr/share/tomcat
 ENV TOMCAT_USERNAME ${TOMCAT_USERNAME:-tomcatAdmin}
 ENV TOMCAT_PASSWORD ${TOMCAT_PASSWORD:-tomcatPassword!}
 ENV TOMCAT_MAX_FILE_SIZE ${TOMCAT_MAX_FILE_SIZE:-300000000}
 ENV JAVA_XMS ${JAVA_XMS:-128m}
 ENV JAVA_XMX ${JAVA_XMX:-1024m}
 
-# Add RPM for windows fonts
-ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
-
-# OS Updates and base installs that are useful.  net-tools is used by UserManager plugin
-RUN yum update -y && \
-yum install -y wget && \
-yum install -y unzip && \
-yum install -y tar && \
-yum install -y net-tools && \
-yum install -y gettext && \
+# Updates
+RUN apk add --update \
+      ca-certificates \
+      curl \
+      wget \
+  && rm -rf /var/cache/apk/*
 
 # Install envplate templating engine for environment variable substitution
 curl -sLo /usr/local/bin/ep https://github.com/kreuzwerker/envplate/releases/download/v0.0.8/ep-linux  && \
 chmod +x /usr/local/bin/ep && \
 
-#Install Windows fonts, like Arial and Verdana
-rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
-
-# Install Java
-wget --output-document jre.rpm --no-cookies --no-check-certificate \
-  --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" \
-   "http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jre-8u101-linux-x64.rpm" && \
-yum localinstall -y jre.rpm && \
-rm -f jre.rpm && \
-
-# Install Tomcat and tomcat web admin interface
-yum install -y tomcat && \
-yum install -y tomcat-webapps tomcat-admin-webapps && \
-
-# Cleanup
-yum clean all && \
-
-# Enable the service
-systemctl enable tomcat
-
 # Add custom config files
-ADD tomcat.conf /usr/share/tomcat/conf
-ADD tomcat-users.xml /usr/share/tomcat/conf
-ADD web.xml /usr/share/tomcat/webapps/manager/WEB-INF/web.xml
+ADD tomcat.conf /usr/local/tomcat/conf
+ADD tomcat-users.xml /usr/local/tomcat/conf
+ADD web.xml /usr/local/tomcat/webapps/manager/WEB-INF/web.xml
 
 # Define default working directory
 WORKDIR /usr/share/tomcat/webapps
@@ -59,7 +34,7 @@ EXPOSE 8080
 EXPOSE 8443
 
 # Substitute Environment variables in the config files and start services.
-CMD ep /usr/share/tomcat/conf/tomcat.conf && \
-ep /usr/share/tomcat/conf/tomcat-users.xml && \
-ep /usr/share/tomcat/webapps/manager/WEB-INF/web.xml && \
-exec /usr/sbin/init
+CMD ep /usr/local/tomcat/conf/tomcat.conf && \
+ep /usr/local/tomcat/conf/tomcat-users.xml && \
+ep /usr/local/tomcat/webapps/manager/WEB-INF/web.xml && \
+exec catalina.sh
