@@ -27,7 +27,7 @@ ADD tomcat-users.xml /usr/local/tomcat/conf
 ADD web.xml /usr/local/tomcat/webapps/manager/WEB-INF/web.xml
 
 # Define default working directory
-WORKDIR /usr/share/tomcat/webapps
+#TODO WORKDIR /usr/share/tomcat/webapps
 
 # Open Ports
 EXPOSE 8080
