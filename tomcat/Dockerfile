@@ -19,7 +19,7 @@ RUN apk add --update \
 
 # Install envplate templating engine for environment variable substitution
 curl -sLo /usr/local/bin/ep https://github.com/kreuzwerker/envplate/releases/download/v0.0.8/ep-linux  && \
-chmod +x /usr/local/bin/ep && \
+chmod +x /usr/local/bin/ep
 
 # Add custom config files
 ADD tomcat.conf /usr/local/tomcat/conf
