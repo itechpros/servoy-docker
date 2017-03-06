@@ -37,4 +37,4 @@ EXPOSE 8443
 CMD ep /usr/local/tomcat/conf/tomcat.conf && \
 ep /usr/local/tomcat/conf/tomcat-users.xml && \
 ep /usr/local/tomcat/webapps/manager/WEB-INF/web.xml && \
-exec catalina.sh
+exec catalina.sh run
