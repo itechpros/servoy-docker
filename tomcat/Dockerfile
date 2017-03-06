@@ -15,7 +15,7 @@ RUN apk add --update \
       ca-certificates \
       curl \
       wget \
-  && rm -rf /var/cache/apk/*
+  && rm -rf /var/cache/apk/* && \
 
 # Install envplate templating engine for environment variable substitution
 curl -sLo /usr/local/bin/ep https://github.com/kreuzwerker/envplate/releases/download/v0.0.8/ep-linux  && \
