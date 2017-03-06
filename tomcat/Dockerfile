@@ -1,6 +1,6 @@
 # Clone of tomcat:8-jre8-alpine, but with different base.  Oracle Java instead of OpenJDK.
 # Start with AlpineLinux with a glibc-2.23 and Oracle Java 8
-FROM anapsix/alpine-java:8_server-jre_unlimited
+FROM anapsix/alpine-java:8_jdk_unlimited
 
 MAINTAINER Scott Butler <scott@itechpros.com>
 
