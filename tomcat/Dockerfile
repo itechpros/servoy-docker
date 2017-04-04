@@ -10,6 +10,7 @@ ENV TOMCAT_PASSWORD ${TOMCAT_PASSWORD:-tomcatPassword!}
 ENV TOMCAT_MAX_FILE_SIZE ${TOMCAT_MAX_FILE_SIZE:-300000000}
 ENV JAVA_XMS ${JAVA_XMS:-128m}
 ENV JAVA_XMX ${JAVA_XMX:-1024m}
+ENV SERVOY_USER_HOME ${SERVOY_USER_HOME:-/home/servoy}
 
 # Add RPM for windows fonts
 ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
