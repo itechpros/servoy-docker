@@ -1,4 +1,4 @@
-# Start with AlpineLinux with a glibc-2.23 and Oracle Java 8
+# Start with AlpineLinux with a glibc-2.23 and Oracle Java 8.
 FROM itechpros/servoy:tomcat-alpine
 
 MAINTAINER Scott Butler <scott@itechpros.com>
