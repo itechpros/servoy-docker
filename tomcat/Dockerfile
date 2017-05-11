@@ -1,4 +1,4 @@
-FROM itechpros/servoy:oraclelinux-systemd
+FROM store/oracle/serverjre:8
 
 MAINTAINER Scott Butler <scott@itechpros.com>
 
@@ -35,9 +35,6 @@ rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
 # Cleanup
 yum clean all && \
 
-# Enable the service
-systemctl enable tomcat
-
 # Add custom config files
 ADD tomcat.conf /usr/share/tomcat/conf
 ADD tomcat-users.xml /usr/share/tomcat/conf
@@ -54,4 +51,4 @@ EXPOSE 8443
 CMD ep /usr/share/tomcat/conf/tomcat.conf && \
 ep /usr/share/tomcat/conf/tomcat-users.xml && \
 ep /usr/share/tomcat/webapps/manager/WEB-INF/web.xml && \
-exec /usr/sbin/init
+exec /opt/tomcat/tomcat.sh
