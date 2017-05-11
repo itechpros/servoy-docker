@@ -33,7 +33,7 @@ chmod +x /usr/local/bin/ep && \
 rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
 
 # Cleanup
-yum clean all && \
+yum clean all
 
 # Add custom config files
 ADD tomcat.conf /usr/share/tomcat/conf
