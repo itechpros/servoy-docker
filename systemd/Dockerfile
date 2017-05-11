@@ -1,4 +1,4 @@
-FROM oraclelinux:7
+FROM store/oracle/serverjre:8
 
 MAINTAINER Scott Butler <scott@itechpros.com>
 
