@@ -38,10 +38,9 @@ rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
 yum clean all && \
 
 # Add Tomcat
-cd /usr/share && \
-wget -o apache-tomcat.tar.gz http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz && \
 mkdir /usr/share/tomcat && \
-tar -zxvf apache-tomcat.tar.gz -C /usr/share/tomcat --strip-components=1
+wget -O /usr/share/tomcat/apache-tomcat.tar.gz http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz && \
+tar -zxvf /usr/share/tomcat/apache-tomcat.tar.gz -C /usr/share/tomcat --strip-components=1
 
 # Add custom config files
 ADD tomcat.conf /usr/share/tomcat/conf
