@@ -1,3 +1,5 @@
 <tomcat-users>
+  <role rolename="admin-gui"/>
+  <role rolename="manager-gui"/>
   <user username="${TOMCAT_USERNAME}" password="${TOMCAT_PASSWORD}" roles="manager-gui,admin-gui"/>
 </tomcat-users>
