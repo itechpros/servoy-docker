@@ -44,9 +44,10 @@ tar -zxvf /usr/share/tomcat/apache-tomcat.tar.gz -C /usr/share/tomcat --strip-co
 
 # Add custom config files
 ADD tomcat.conf /usr/share/tomcat/conf
+ADD manager.xml /usr/share/tomcat/conf/Catalina/localhost
 ADD tomcat-users.xml /usr/share/tomcat/conf
-ADD web.xml /usr/share/tomcat/webapps/manager/WEB-INF/web.xml
-ADD tomcat_start.sh /usr/share/tomcat/
+ADD web.xml /usr/share/tomcat/webapps/manager/WEB-INF
+ADD tomcat_start.sh /usr/share/tomcat
 
 # Make the startup executable
 RUN chmod +x /usr/share/tomcat/tomcat_start.sh
