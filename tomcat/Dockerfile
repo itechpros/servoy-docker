@@ -5,6 +5,8 @@ MAINTAINER Scott Butler <scott@itechpros.com>
 # Environment variables
 ENV JAVA_HOME /usr/java/latest
 ENV CATALINA_HOME /usr/share/tomcat
+ENV TOMCAT_VERSION_MAJOR ${TOMCAT_VERSION_MAJOR:-8}
+ENV TOMCAT_VERSION_FULL ${TOMCAT_VERSION_FULL:-8.5.15}
 ENV TOMCAT_USERNAME ${TOMCAT_USERNAME:-tomcatAdmin}
 ENV TOMCAT_PASSWORD ${TOMCAT_PASSWORD:-tomcatPassword!}
 ENV TOMCAT_MAX_FILE_SIZE ${TOMCAT_MAX_FILE_SIZE:-300000000}
@@ -39,7 +41,7 @@ yum clean all && \
 
 # Add Tomcat
 mkdir /usr/share/tomcat && \
-wget -O /usr/share/tomcat/apache-tomcat.tar.gz http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz && \
+wget -O /usr/share/tomcat/apache-tomcat.tar.gz http://www-us.apache.org/dist/tomcat/tomcat-$TOMCAT_VERSION_MAJOR/v$TOMCAT_VERSION_FULL/bin/apache-tomcat-$TOMCAT_VERSION_FULL.tar.gz && \
 tar -zxvf /usr/share/tomcat/apache-tomcat.tar.gz -C /usr/share/tomcat --strip-components=1
 
 # Add custom config files
