@@ -17,23 +17,31 @@ ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
 
 # OS Updates and base installs that are useful.  net-tools is used by UserManager plugin
 RUN yum update -y && \
-yum install -y wget && \
-yum install -y unzip && \
-yum install -y tar && \
-yum install -y net-tools && \
-yum install -y gettext && \
-yum install -y tomcat && \
-yum install -y tomcat-webapps tomcat-admin-webapps && \
+yum install -y \
+  wget \
+  unzip \
+  tar \
+  gzip \
+  gunzip \
+  net-tools \
+  gettext && \
+
 
 # Install envplate templating engine for environment variable substitution
 curl -sLo /usr/local/bin/ep https://github.com/kreuzwerker/envplate/releases/download/v0.0.8/ep-linux  && \
 chmod +x /usr/local/bin/ep && \
 
-#Install Windows fonts, like Arial and Verdana
+# Install Windows fonts, like Arial and Verdana
 rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
 
 # Cleanup
-yum clean all
+yum clean all && \
+
+# Add Tomcat
+cd /usr/share && \
+wget -o apache-tomcat.tar.gz http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz && \
+mkdir /usr/share/tomcat && 
+tar -zxvf apache-tomcat.tar.gz -C /usr/share/tomcat --strip-components=1
 
 # Add custom config files
 ADD tomcat.conf /usr/share/tomcat/conf
@@ -51,4 +59,4 @@ EXPOSE 8443
 CMD ep /usr/share/tomcat/conf/tomcat.conf && \
 ep /usr/share/tomcat/conf/tomcat-users.xml && \
 ep /usr/share/tomcat/webapps/manager/WEB-INF/web.xml && \
-exec /opt/tomcat/tomcat.sh
+exec /usr/share/tomcat/bin/startup.sh
