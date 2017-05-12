@@ -48,6 +48,9 @@ ADD tomcat-users.xml /usr/share/tomcat/conf
 ADD web.xml /usr/share/tomcat/webapps/manager/WEB-INF/web.xml
 ADD tomcat_start.sh /usr/share/tomcat/
 
+# Make the startup executable
+RUN chmod +x /usr/share/tomcat/tomcat_start.sh
+
 # Define default working directory
 WORKDIR /usr/share/tomcat/webapps
 
