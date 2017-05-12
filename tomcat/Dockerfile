@@ -48,11 +48,11 @@ wget -O $CATALINA_HOME/apache-tomcat.tar.gz http://www-us.apache.org/dist/tomcat
 tar -zxvf $CATALINA_HOME/apache-tomcat.tar.gz -C $CATALINA_HOME --strip-components=1
 
 # Add custom config files
-ADD tomcat.conf $CATALINA_HOME/conf
-ADD manager.xml $CATALINA_HOME/conf/Catalina/localhost
-ADD tomcat-users.xml $CATALINA_HOME/conf
-ADD web.xml $CATALINA_HOME/webapps/manager/WEB-INF
-ADD tomcat_start.sh $CATALINA_HOME
+ADD tomcat.conf $CATALINA_HOME/conf/
+ADD manager.xml $CATALINA_HOME/conf/Catalina/localhost/
+ADD tomcat-users.xml $CATALINA_HOME/conf/
+ADD web.xml $CATALINA_HOME/webapps/manager/WEB-INF/
+ADD tomcat_start.sh $CATALINA_HOME/
 
 # Make the startup executable
 RUN chmod +x $CATALINA_HOME/tomcat_start.sh
