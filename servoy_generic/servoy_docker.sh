@@ -5,4 +5,4 @@ echo "Filling templates with environmental variables"
 ep servoy_server_docker.sh
 
 echo "Starting Servoy"
-servoy_server_docker.sh
+./servoy_server_docker.sh
