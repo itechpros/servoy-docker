@@ -13,12 +13,16 @@ ENV TOMCAT_MAX_FILE_SIZE ${TOMCAT_MAX_FILE_SIZE:-300000000}
 ENV JAVA_XMS ${JAVA_XMS:-128m}
 ENV JAVA_XMX ${JAVA_XMX:-1024m}
 ENV CATALINA_OPTS -Xms${JAVA_XMS} -Xmx${JAVA_XMX} -DSERVOY_USER_HOME=${SERVOY_USER_HOME}
+ENV TIME_ZONE ${TIME_ZONE:-America/New_York}
 
 # Add RPM for windows fonts
 ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
 
+#Set Timezone
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
+
 # OS Updates and base installs that are useful.  net-tools is used by UserManager plugin
-RUN yum update -y && \
+yum update -y && \
 yum install -y \
   wget \
   unzip \
