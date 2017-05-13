@@ -2,7 +2,7 @@
 
 echo "Running Servoy Start Script"
 echo "Filling templates with environmental variables"
-ep servoy_server.sh
+ep servoy_server_docker.sh
 
 echo "Starting Servoy"
-servoy_server.sh
+servoy_server_docker.sh
