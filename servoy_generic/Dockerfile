@@ -12,7 +12,7 @@ ENV TIME_ZONE ${TIME_ZONE:-America/New_York}
 # Bundle installer config and scripts
 ADD servoy_install_$SERVOY_VERSION_MAJOR.xml servoy_install.xml
 ADD servoy_docker.sh $SERVOY_INSTALL_DIR/application_server/
-ADD servoy_server_docker.sh $SERVOY_INSTALL_DIR/application_server/
+ADD servoy_server_docker_$SERVOY_VERSION_MAJOR.sh $SERVOY_INSTALL_DIR/application_server/servoy_server_docker.sh
 
 # Add RPM for windows fonts
 ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
