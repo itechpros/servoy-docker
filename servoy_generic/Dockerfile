@@ -5,7 +5,7 @@ MAINTAINER Scott Butler <scott@itechpros.com>
 # Environment variables
 ENV SERVOY_VERSION_MAJOR ${SERVOY_VERSION_MAJOR:-8}
 ENV SERVOY_INSTALL_DIR ${SERVOY_INSTALL_DIR:-/usr/home/servoy}
-ENV JAVA_XMS ${JAVA_XMS:-128m}
+ENV JAVA_XMS ${JAVA_XMS:-64m}
 ENV JAVA_XMX ${JAVA_XMX:-1024m}
 
 # Bundle installer config
