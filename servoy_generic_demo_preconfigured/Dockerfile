@@ -1,4 +1,4 @@
-FROM itechrpos/servoy:servoy-oraclejava
+FROM itechpros/servoy:servoy-oraclejava
 
 MAINTAINER Scott Butler <scott@itechpros.com>
 
