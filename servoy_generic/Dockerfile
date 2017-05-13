@@ -7,6 +7,7 @@ ENV SERVOY_VERSION_MAJOR ${SERVOY_VERSION_MAJOR:-8}
 ENV SERVOY_INSTALL_DIR ${SERVOY_INSTALL_DIR:-/usr/home/servoy}
 ENV JAVA_XMS ${JAVA_XMS:-64m}
 ENV JAVA_XMX ${JAVA_XMX:-1024m}
+ENV TIME_ZONE ${TIME_ZONE:-America/New_York}
 
 # Bundle installer config
 ADD servoy_install_$SERVOY_VERSION_MAJOR.xml servoy_install.xml
@@ -14,8 +15,11 @@ ADD servoy_install_$SERVOY_VERSION_MAJOR.xml servoy_install.xml
 # Add RPM for windows fonts
 ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
 
+#Set Timezone
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
+
 # OS Updates and base installs that are useful.  net-tools is used by UserManager plugin
-RUN yum update -y && \
+yum update -y && \
 yum install -y \
   wget \
   unzip \
