@@ -10,8 +10,6 @@ ENV JAVA_XMX ${JAVA_XMX:-1024m}
 
 # Bundle installer config
 ADD servoy_install_$SERVOY_VERSION_MAJOR.xml servoy_install.xml
-ADD servoy_docker.sh $SERVOY_INSTALL_DIR/application_server/
-ADD servoy_server_docker.sh $SERVOY_INSTALL_DIR/application_server/
 
 # Add RPM for windows fonts
 ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
@@ -44,8 +42,13 @@ rm -f servoy_installer.jar && \
 rm -f servoy_install.xml && \
 
 #set permissions
-chmod +x $SERVOY_INSTALL_DIR/application_server/servoy_docker.sh
+chmod +x $SERVOY_INSTALL_DIR/application_server/servoy_docker.sh && \
 chmod +x $SERVOY_INSTALL_DIR/application_server/servoy_server_docker.sh
+
+# Add scripts and custom properties
+ADD servoy_docker.sh $SERVOY_INSTALL_DIR/application_server/
+ADD servoy_server_docker.sh $SERVOY_INSTALL_DIR/application_server/
+ADD servoy.properties $SERVOY_INSTALL_DIR/application_server/
 
 # Set environment variables.
 ENV HOME $SERVOY_INSTALL_DIR/
