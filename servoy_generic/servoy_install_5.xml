@@ -1,0 +1,26 @@
+<AutomatedInstallation langpack="eng">
+    <com.izforge.izpack.panels.HelloPanel/>
+    <com.izforge.izpack.panels.LicencePanel/>
+    <com.izforge.izpack.panels.TargetPanel>
+        <installpath>/usr/home/servoy</installpath>
+    </com.izforge.izpack.panels.TargetPanel>
+    <com.izforge.izpack.panels.PacksPanel>
+        <pack name="Application Server" index="0" selected="true"/>
+        <pack name="Developer" index="1" selected="false"/>
+        <pack name="JDBC Driver Files" index="2" selected="true"/>
+        <pack name="Database" index="3" selected="false"/>
+        <pack name="Example Files" index="6" selected="false"/>
+        <pack name="Headless Client Sample" index="7" selected="false"/>
+        <pack name="Documentation Files" index="8" selected="false"/>
+        <pack name="Beans" index="9" selected="true"/>
+        <pack name="Plugin Files" index="10" selected="true"/>
+        <pack name="Look and Feel Files" index="11" selected="true"/>
+		<pack name="PDF support package" index="12" selected="true"/>
+    </com.izforge.izpack.panels.PacksPanel>
+    <com.izforge.izpack.panels.UserPathPanel>
+        <UserPathPanelElement>/usr/home/servoy_workspace</UserPathPanelElement>
+    </com.izforge.izpack.panels.UserPathPanel>
+    <com.izforge.izpack.panels.InstallPanel/>
+    <com.izforge.izpack.panels.ShortcutPanel/>
+    <com.izforge.izpack.panels.FinishPanel/>
+</AutomatedInstallation>
