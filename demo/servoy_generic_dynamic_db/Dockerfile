@@ -6,4 +6,6 @@ MAINTAINER Scott Butler <scott@itechpros.com>
 ADD servoy.properties $SERVOY_INSTALL_DIR/application_server/
 ADD wait-for-postgres.sh $SERVOY_INSTALL_DIR/application_server/
 
-RUN chmod +x $SERVOY_INSTALL_DIR/application_server/servoy_server_docker.sh
+# Add Postgres Client and special script to wait for postgres to startup
+RUN yum install -y postgres && \
+chmod +x $SERVOY_INSTALL_DIR/application_server/wait-for-postgres.sh
