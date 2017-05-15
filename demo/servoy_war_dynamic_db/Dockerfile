@@ -13,7 +13,7 @@ yum install -y postgresql96 && \
 chmod +x $SERVOY_INSTALL_DIR/application_server/wait-for-postgres.sh && \
 
 # Add my war file
-RUN wget -O $CATALINA_HOME/webapps/$WAR_CONTEXT.war http://servoyguy.com/docker/demo/servoy8_samplecrm.war && \
+wget -O $CATALINA_HOME/webapps/$WAR_CONTEXT.war http://servoyguy.com/docker/demo/servoy8_samplecrm.war
 
 # Define an Entrypoint, Runs before the command
 ENTRYPOINT ["./wait-for-postgres.sh", "db", "5432"]
