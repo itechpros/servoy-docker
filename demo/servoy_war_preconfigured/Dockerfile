@@ -8,4 +8,4 @@ ENV WAR_CONTEXT ${WAR_CONTEXT:-servoy}
 RUN wget -O $CATALINA_HOME/webapps/$WAR_CONTEXT.war http://servoyguy.com/docker/demo/servoy8_samplecrm.war && \
 
 # Define default command.
-CMD ["./servoy_docker.sh"]
+CMD $CATALINA_HOME/tomcat_start.sh
