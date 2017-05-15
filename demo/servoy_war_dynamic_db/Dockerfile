@@ -16,7 +16,7 @@ chmod +x $CATALINA_HOME/wait-for-postgres.sh && \
 wget -O $CATALINA_HOME/webapps/$WAR_CONTEXT.war http://servoyguy.com/docker/demo/svySampleCRM_dockerCompose.war
 
 # Define an Entrypoint, Runs before the command
-ENTRYPOINT ["$CATALINA_HOME/wait-for-postgres.sh", "db", "5432"]
+ENTRYPOINT ["../wait-for-postgres.sh", "db", "5432"]
 
 # Define default command.
-CMD ["$CATALINA_HOME/tomcat_start.sh"]
+CMD ["../tomcat_start.sh"]
