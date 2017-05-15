@@ -14,3 +14,6 @@ chmod +x $SERVOY_INSTALL_DIR/application_server/wait-for-postgres.sh
 
 # Add our postgres path to path so our wait-for-postgres.sh works
 ENV PATH="${PATH}:/usr/pgsql-9.6/bin"
+
+# Define default command.
+CMD ["./servoy_docker.sh"]
