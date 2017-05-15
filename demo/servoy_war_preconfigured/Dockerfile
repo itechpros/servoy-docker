@@ -5,7 +5,7 @@ MAINTAINER Scott Butler <scott@itechpros.com>
 ENV WAR_CONTEXT ${WAR_CONTEXT:-servoy}
 
 # Add my war file
-RUN wget -O $CATALINA_HOME/webapps/$WAR_CONTEXT.war http://servoyguy.com/docker/demo/servoy8_samplecrm.war && \
+RUN wget -O $CATALINA_HOME/webapps/$WAR_CONTEXT.war http://servoyguy.com/docker/demo/servoy8_samplecrm.war
 
 # Define default command.
 CMD $CATALINA_HOME/tomcat_start.sh
