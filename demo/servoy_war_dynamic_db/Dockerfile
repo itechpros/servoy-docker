@@ -15,6 +15,9 @@ chmod +x $CATALINA_HOME/wait-for-postgres.sh && \
 # Add my war file
 wget -O $CATALINA_HOME/webapps/$WAR_CONTEXT.war http://servoyguy.com/docker/demo/svySampleCRM_dockerCompose.war
 
+# Add our postgres path to path so our wait-for-postgres.sh works
+ENV PATH="${PATH}:/usr/pgsql-9.6/bin"
+
 # Define an Entrypoint, Runs before the command
 ENTRYPOINT ["../wait-for-postgres.sh", "db", "5432"]
 
