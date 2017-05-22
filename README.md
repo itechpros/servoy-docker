@@ -17,6 +17,7 @@ Note: These are examples showing how to use the tags.  You should create your ow
 
 ## Standard Servoy 8 deployment and a Postgres deployment
 Designed to be bundled together with Docker Compose, Docker Cloud, or other orchestration tool.
+This will deploy the Servoy Sample CRM for the Servoy Web Client.
 * servoy_generic_demo_dynamic_db  [(oraclejava/demo/servoy_generic_dynamic_db/Dockerfile) ](https://github.com/goldcougar/servoy-docker/blob/oraclejava/demo/servoy_generic_dynamic_db/Dockerfile)
 * servoy_generic_demo_dynamic_db_pg  [(oraclejava/demo/servoy_generic_dynamic_db/postgres/Dockerfile) ](https://github.com/goldcougar/servoy-docker/blob/oraclejava/demo/servoy_generic_dynamic_db/postgres/Dockerfile)
 
@@ -70,6 +71,7 @@ servoy:
 
 ## Tomcat Servoy 8 WAR deployment and a Postgres deployment
 Designed to be bundled together with Docker Compose, Docker Cloud, or other orchestration tool.
+This will deploy the Servoy Sample CRM for the Servoy NGClient.
 * servoy_war_demo_dynamic_db  [(oraclejava/demo/servoy_war_dynamic_db/Dockerfile) ](https://github.com/goldcougar/servoy-docker/blob/oraclejava/demo/servoy_war_dynamic_db/Dockerfile)
 * servoy_war_demo_dynamic_db_pg  [(oraclejava/demo/servoy_war_dynamic_db/postgres/Dockerfile) ](https://github.com/goldcougar/servoy-docker/blob/oraclejava/demo/servoy_war_dynamic_db/postgres/Dockerfile)
 
