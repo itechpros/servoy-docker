@@ -22,7 +22,7 @@ Designed to be bundled together with Docker Compose, Docker Cloud, or other orch
 
 **Docker Compose file for above deployment:**
 docker-compose.yml
-```Dockerfile
+```YAML
 version: '3'
 services:
   servoy:
@@ -47,7 +47,7 @@ services:
   
 **Docker Cloud file for above deployment:**
 docker-cloud.yml
-```javascript
+```YAML
 db:
   environment:
     - POSTGRES_DB=servoyworld_2017
@@ -76,7 +76,7 @@ Designed to be bundled together with Docker Compose, Docker Cloud, or other orch
 
 **Docker Compose file for above deployment:**
 docker-compose.yml
-```javascript
+```YAML
 version: '3'
 services:
   servoy:
@@ -102,7 +102,7 @@ services:
   
 **Docker Cloud file for above deployment:**
 docker-cloud.yml
-```javascript
+```YAML
 db:
   environment:
     - POSTGRES_DB=servoyworld_2017
