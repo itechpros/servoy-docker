@@ -127,7 +127,7 @@ Remember that your Docker containers loose their data after restart.  This is fi
   
 **Docker Compose file example with a volume for persistent storage**  
 docker-compose.yml  
-Saves the /var/lib/postgresql/data folder on the Docker container into the /container_volumes/pg folder on the host machine. 
+Saves the /var/lib/postgresql/data folder on the Docker container into the /container_volumes/pg folder on the host machine.  For Docker Cloud, use the same technique, adding a volumes property.
 ```YAML
 version: '3'
 services:
