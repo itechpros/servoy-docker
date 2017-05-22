@@ -1,6 +1,5 @@
 Supported tags and respective Dockerfile links
 ===============================================
----
 ## Standard Servoy 5-8 deployment
 * servoy-oraclejava  [(oraclejava/servoy_generic/Dockerfile) ](https://github.com/goldcougar/servoy-docker/blob/oraclejava/servoy_generic/Dockerfile)
 
@@ -11,7 +10,6 @@ Supported tags and respective Dockerfile links
 
 Examples of extending the above tags
 ===============================================
----
 Note: These are examples showing how to use the tags.  You should create your own Dockerfiles using these as examples, but only extend from the above 2 main tags.
 
 ## Standard Servoy 8 deployment pointing to hosted cloud DB
