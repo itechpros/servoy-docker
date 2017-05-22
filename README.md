@@ -44,7 +44,7 @@ services:
       - POSTGRES_DB=servoyworld_2017
       - POSTGRES_PASSWORD=demo
 ```  
- ` 
+  
 **Docker Cloud file for above deployment:**
 docker-cloud.yml
 ```javascript
