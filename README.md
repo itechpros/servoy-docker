@@ -123,7 +123,7 @@ servoy:
  
 Misc Notes
 ===============================================
-Remember that your Docker containers loos their data after restart.  This is fine for Servoy applications servers, as they should be storing any persistent data beyond what you setup in your Dockerfile.  However for your Datbase servers, considering adding a volume to your Docker Compose or Docker Cloud file so that the storage location for the data is mapped to a fixed location on the parent host machine.  This way it will start up and always look to the same folder for its database data.  Keep in mind this only works if you do 1 database server per Docker host, otherwise you'll need to choose different locations for the database data for each, or use a more advanced technique.  
+Remember that your Docker containers loose their data after restart.  This is fine for Servoy applications servers, as they shouldn't be storing any persistent data beyond what you setup in your Dockerfile.  However for your Datbase servers, considering adding a volume to your Docker Compose or Docker Cloud file so that the storage location for the data is mapped to a fixed location on the parent host machine.  This way it will start up and always look to the same folder for its database data.  Keep in mind this only works if you do 1 database server per Docker host, otherwise you'll need to choose different locations for the database data for each, or use a more advanced technique.  
   
 **Docker Compose file example with a volume for persistent storage**  
 docker-compose.yml  
