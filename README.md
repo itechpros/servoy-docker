@@ -22,7 +22,7 @@ Designed to be bundled together with Docker Compose, Docker Cloud, or other orch
 
 **Docker Compose file for above deployment:**
 docker-compose.yml
-```javascript
+```Dockerfile
 version: '3'
 services:
   servoy:
