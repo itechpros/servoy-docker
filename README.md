@@ -6,7 +6,7 @@ Supported tags and respective Dockerfile links
 ## Tomcat for Servoy WAR deployment
 * tomcat-oraclejava  [(oraclejava/tomcat/Dockerfile) ](https://github.com/goldcougar/servoy-docker/blob/oraclejava/tomcat/Dockerfile)  
 
- ` 
+ 
 
 Examples of extending the above tags
 ===============================================
@@ -63,7 +63,7 @@ servoy:
   ports:
     - '8080:8080'
 ```
- ` 
+ 
 
 ## Tomcat Servoy 8 WAR deployment pointing to hosted cloud DB
 * servoy_war_demo_preconfigured  [(oraclejava/demo/servoy_war_preconfigured/Dockerfile) ](https://github.com/goldcougar/servoy-docker/blob/oraclejava/demo/servoy_war_preconfigured/Dockerfile)
@@ -98,7 +98,8 @@ services:
       - POSTGRES_DB=servoyworld_2017
       - POSTGRES_PASSWORD=demo
 ```  
- ` 
+ 
+  
 **Docker Cloud file for above deployment:**
 docker-cloud.yml
 ```javascript
@@ -117,4 +118,4 @@ servoy:
   ports:
     - '8080:8080'
 ```
- ` 
+ 
