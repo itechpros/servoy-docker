@@ -11,6 +11,7 @@ Supported tags and respective Dockerfile links
 Examples of extending the above tags
 ===============================================
 Note: These are examples showing how to use the tags.  You should create your own Dockerfiles using these as examples, but only extend from the above 2 main tags.
+There is also a video tutorial available here: https://youtu.be/RVOpAntP2oM
 
 ## Standard Servoy 8 deployment pointing to hosted cloud DB
 * servoy_generic_demo_preconfigured  [(oraclejava/servoy_generic_demo_preconfigured/Dockerfile) ](https://github.com/goldcougar/servoy-docker/blob/oraclejava/servoy_generic_demo_preconfigured/Dockerfile)
