@@ -22,8 +22,6 @@ ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
 
 # OS Updates and base installs that are useful.  net-tools is used by UserManager plugin
-wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
-rpm -Uvh epel-release-latest-7*.rpm && \
 yum update -y && \
 yum install -y \
   wget \
@@ -33,10 +31,15 @@ yum install -y \
   gunzip \
   net-tools \
   curl \
-  cabextract \
-  xorg-x11-font-utils \
-  fontconfig \
   gettext && \
+  
+ # Font http://mscorefonts2.sourceforge.net/
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+rpm -Uvh epel-release-latest-7*.rpm && \
+yum install -y \
+cabextract \
+  xorg-x11-font-utils \
+  fontconfig &&\
 
 
 # Install envplate templating engine for environment variable substitution
