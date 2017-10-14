@@ -22,6 +22,8 @@ ADD msttcore-fonts-2.0-3.noarch.rpm msttcore-fonts-2.0-3.noarch.rpm
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
 
 # OS Updates and base installs that are useful.  net-tools is used by UserManager plugin
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+rpm -Uvh epel-release-latest-7*.rpm && \
 yum update -y && \
 yum install -y \
   wget \
@@ -30,6 +32,10 @@ yum install -y \
   gzip \
   gunzip \
   net-tools \
+  curl \
+  cabextract \
+  xorg-x11-font-utils \
+  fontconfig \
   gettext && \
 
 
@@ -38,7 +44,8 @@ curl -sLo /usr/local/bin/ep https://github.com/kreuzwerker/envplate/releases/dow
 chmod +x /usr/local/bin/ep && \
 
 # Install Windows fonts, like Arial and Verdana
-rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
+#rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
+rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm \
 
 # Cleanup
 yum clean all && \
