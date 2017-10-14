@@ -48,7 +48,7 @@ chmod +x /usr/local/bin/ep && \
 
 # Install Windows fonts, like Arial and Verdana
 #rpm -Uvh msttcore-fonts-2.0-3.noarch.rpm && \
-rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm \
+rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm && \
 
 # Cleanup
 yum clean all && \
